@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Strength </title>
+    <style>
+        *::before,
+        *::after,
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(19, 55, 28);
+            color: hsla(135, 18%, 60%, 0.753);
+            text-align: center;
+        }
+
+        .meter {
+            position: relative;
+            height: 2rem;
+            width: 90%;
+            border: 3px solid hsla(61, 51%, 53%, 0.753);
+            border-radius: 1rem;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .meter::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            height: 100%;
+            width: calc(1%*var(--strength, 0));
+            background-color: hsla(61, 51%, 53%, 0.753);
+            transition: width 200ms;
+        }
+
+        .input-pw {
+            height: auto;
+            width: 90%;
+            padding: .3rem .3rem;
+            background-color: hsla(60, 9%, 37%, 0.753);
+            color: aliceblue;
+            margin-top: 2rem;
+            border-radius: .5rem;
+            border: 3px solid hsla(61, 51%, 53%, 0.753);
+            text-align: center;
+        }
+
+        .reasons {
+            margin-top: 1rem;
+            color: hsla(61, 46%, 39%, 0.753);
+        }
+    </style>
+    <script defer src="script.js"></script>
+
+</head>
+
+<body>
+    <h1> Password Strength Tester</h1>
+    <div class="meter" id="meter"></div>
+    <input type="text" autofocus aria-labelledby="password" id="input-pw" class="input-pw" value="password">
+    <div id="reasons" class="reasons"></div>
+</body>
+
+</html>
